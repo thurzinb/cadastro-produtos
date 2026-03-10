@@ -1,0 +1,206 @@
+/* =============================================
+   CADASTRO DE PRODUTO — Estilo Dark Consistente
+   ============================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+/* === WRAPPER GERAL === */
+.container {
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+  background: #0d0d0d;
+  background-image:
+    radial-gradient(ellipse at 80% 10%, rgba(255, 180, 99, 0.07) 0%, transparent 50%),
+    radial-gradient(ellipse at 20% 90%, rgba(255, 99, 160, 0.05) 0%, transparent 50%);
+  max-width: 680px !important;
+  margin: 0 auto;
+  padding: 40px 16px 80px;
+  color: #f0f0f0;
+}
+
+/* === TÍTULO === */
+.display-4 {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 2.4rem !important;
+  font-weight: 800 !important;
+  color: #ffffff;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.display-4::after {
+  content: '';
+  display: block;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(135deg, #ffb463, #ff63a0);
+  border-radius: 2px;
+  margin: 12px auto 36px;
+}
+
+/* === FORMULÁRIO === */
+form {
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+  margin-bottom: 32px;
+}
+
+/* === CAMPOS (mb-3) === */
+.mb-3 {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px !important;
+}
+
+/* === LABELS === */
+.form-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.75rem !important;
+  font-weight: 700;
+  color: #aaa;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 0 !important;
+}
+
+/* === INPUTS === */
+.form-control {
+  background: #1e1e1e !important;
+  border: 1.5px solid #2e2e2e !important;
+  border-radius: 10px !important;
+  padding: 13px 16px !important;
+  color: #f0f0f0 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-size: 0.95rem !important;
+  transition: border-color 0.2s, box-shadow 0.2s !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.form-control:focus {
+  border-color: #ffb463 !important;
+  box-shadow: 0 0 0 3px rgba(255, 180, 99, 0.12) !important;
+  background: #1e1e1e !important;
+  color: #f0f0f0 !important;
+}
+
+.form-control::placeholder {
+  color: #444 !important;
+}
+
+/* === BOTÃO SALVAR === */
+.btn-primary {
+  background: linear-gradient(135deg, #ffb463, #ff63a0) !important;
+  border: none !important;
+  border-radius: 10px !important;
+  padding: 13px 32px !important;
+  font-family: 'Syne', sans-serif !important;
+  font-size: 0.95rem !important;
+  font-weight: 700 !important;
+  color: #000 !important;
+  cursor: pointer !important;
+  transition: opacity 0.2s, transform 0.15s !important;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+  align-self: flex-start;
+}
+
+.btn-primary:hover {
+  opacity: 0.88 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 24px rgba(255, 99, 160, 0.25) !important;
+}
+
+.btn-primary:active {
+  transform: translateY(0) !important;
+}
+
+/* === TOTAL DE PRODUTOS === */
+.container > *:not(form):not(.display-4):not(table):not(.table) {
+  display: block;
+  font-family: 'Syne', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #555;
+  margin: 24px 0 16px;
+  padding-left: 4px;
+}
+
+/* === TABELA === */
+.table {
+  width: 100%;
+  border-collapse: separate !important;
+  border-spacing: 0 6px !important;
+  font-size: 0.9rem;
+}
+
+.table thead th {
+  font-family: 'Syne', sans-serif !important;
+  font-size: 0.7rem !important;
+  font-weight: 700 !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase !important;
+  color: #555 !important;
+  padding: 10px 16px !important;
+  border: none !important;
+  background: transparent !important;
+}
+
+.table tbody tr {
+  background: #161616;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.table tbody tr:hover {
+  background: #1e1e1e;
+}
+
+.table tbody td {
+  padding: 14px 16px !important;
+  border: none !important;
+  color: #080808;
+  vertical-align: middle !important;
+}
+
+.table tbody td:first-child {
+  border-radius: 10px 0 0 10px !important;
+  font-weight: 500;
+  color: #0e0c0c;
+}
+
+.table tbody td:last-child {
+  border-radius: 0 10px 10px 0 !important;
+  color: #020202;
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+}
+
+/* === RESPONSIVO === */
+@media (max-width: 480px) {
+  form {
+    padding: 24px 18px;
+  }
+
+  .display-4 {
+    font-size: 1.8rem !important;
+  }
+
+  .btn-primary {
+    width: 100% !important;
+    text-align: center;
+  }
+}

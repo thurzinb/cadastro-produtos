@@ -1,0 +1,210 @@
+<div class="cadastro-wrapper">
+
+  <!-- CABEÇALHO -->
+  <header class="cadastro-header">
+    <div class="header-icon">👤</div>
+    <h1>Cadastro de Cliente</h1>
+    <p class="subtitle">Preencha os dados abaixo para realizar o cadastro</p>
+  </header>
+
+  <!-- TELA DE SUCESSO -->
+  <div class="sucesso-card" *ngIf="cadastrado">
+    <div class="sucesso-icon">✅</div>
+    <h2>{{ mensagemSucesso }}</h2>
+    <div class="resumo">
+      <h3>Resumo do Cadastro</h3>
+      <ul>
+        <li><span>Nome:</span> {{ cliente.nome }}</li>
+        <li><span>E-mail:</span> {{ cliente.email }}</li>
+        <li><span>Telefone:</span> {{ cliente.telefone }}</li>
+        <li><span>Gênero:</span> {{ cliente.genero }}</li>
+        <li><span>Estado:</span> {{ cliente.estado }}</li>
+        <li><span>Interesses:</span> {{ interessesSelecionados.join(', ') }}</li>
+        <li><span>Termos:</span> Aceitos ✓</li>
+      </ul>
+    </div>
+    <button class="btn-novo" (click)="novoCadastro()">+ Novo Cadastro</button>
+  </div>
+
+  <!-- FORMULÁRIO -->
+  <form class="cadastro-form" (ngSubmit)="cadastrar()" *ngIf="!cadastrado">
+
+    <!-- ERROS -->
+    <div class="erros-box" *ngIf="erros.length > 0">
+      <strong>⚠️ Corrija os erros abaixo:</strong>
+      <ul>
+        <li *ngFor="let erro of erros">{{ erro }}</li>
+      </ul>
+    </div>
+
+    <!-- 1. NOME -->
+    <div class="campo">
+      <label for="nome">
+        <span class="campo-numero">01</span>
+        Nome Completo <span class="obrigatorio">*</span>
+      </label>
+      <input
+        type="text"
+        id="nome"
+        [(ngModel)]="cliente.nome"
+        name="nome"
+        placeholder="Ex: Maria Aparecida Silva"
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- 2. EMAIL -->
+    <div class="campo">
+      <label for="email">
+        <span class="campo-numero">02</span>
+        E-mail <span class="obrigatorio">*</span>
+      </label>
+      <input
+        type="email"
+        id="email"
+        [(ngModel)]="cliente.email"
+        name="email"
+        placeholder="Ex: maria@email.com"
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- 3. TELEFONE -->
+    <div class="campo">
+      <label for="telefone">
+        <span class="campo-numero">03</span>
+        Telefone / WhatsApp <span class="obrigatorio">*</span>
+      </label>
+      <input
+        type="text"
+        id="telefone"
+        [(ngModel)]="cliente.telefone"
+        name="telefone"
+        placeholder="Ex: (11) 91234-5678"
+        autocomplete="off"
+      />
+    </div>
+
+    <!-- 4. GÊNERO — RADIO BUTTON -->
+    <div class="campo">
+      <label class="label-grupo">
+        <span class="campo-numero">04</span>
+        Gênero <span class="obrigatorio">*</span>
+      </label>
+      <div class="radio-group">
+        <label class="radio-opcao" [class.selecionado]="cliente.genero === 'Masculino'">
+          <input
+            type="radio"
+            name="genero"
+            value="Masculino"
+            [(ngModel)]="cliente.genero"
+          />
+          <span class="radio-icone">♂</span>
+          Masculino
+        </label>
+        <label class="radio-opcao" [class.selecionado]="cliente.genero === 'Feminino'">
+          <input
+            type="radio"
+            name="genero"
+            value="Feminino"
+            [(ngModel)]="cliente.genero"
+          />
+          <span class="radio-icone">♀</span>
+          Feminino
+        </label>
+        <label class="radio-opcao" [class.selecionado]="cliente.genero === 'Outro'">
+          <input
+            type="radio"
+            name="genero"
+            value="Outro"
+            [(ngModel)]="cliente.genero"
+          />
+          <span class="radio-icone">⚧</span>
+          Outro
+        </label>
+        <label class="radio-opcao" [class.selecionado]="cliente.genero === 'Prefiro não informar'">
+          <input
+            type="radio"
+            name="genero"
+            value="Prefiro não informar"
+            [(ngModel)]="cliente.genero"
+          />
+          <span class="radio-icone">—</span>
+          Não informar
+        </label>
+      </div>
+    </div>
+
+    <!-- 5. ESTADO — SELECT -->
+    <div class="campo">
+      <label for="estado">
+        <span class="campo-numero">05</span>
+        Estado (UF) <span class="obrigatorio">*</span>
+      </label>
+      <select id="estado" [(ngModel)]="cliente.estado" name="estado">
+        <option value="" disabled>Selecione seu estado...</option>
+        <option *ngFor="let uf of estados" [value]="uf">{{ uf }}</option>
+      </select>
+    </div>
+
+    <!-- 6. INTERESSES — CHECKBOX -->
+    <div class="campo">
+      <label class="label-grupo">
+        <span class="campo-numero">06</span>
+        Interesses <span class="obrigatorio">*</span>
+        <small>(Selecione ao menos um)</small>
+      </label>
+      <div class="checkbox-group">
+        <label class="checkbox-opcao" [class.marcado]="cliente.interesses['tecnologia']">
+          <input type="checkbox" name="tecnologia" [(ngModel)]="cliente.interesses['tecnologia']" />
+          <span class="check-mark">✓</span>
+          💻 Tecnologia
+        </label>
+        <label class="checkbox-opcao" [class.marcado]="cliente.interesses['esportes']">
+          <input type="checkbox" name="esportes" [(ngModel)]="cliente.interesses['esportes']" />
+          <span class="check-mark">✓</span>
+          ⚽ Esportes
+        </label>
+        <label class="checkbox-opcao" [class.marcado]="cliente.interesses['musica']">
+          <input type="checkbox" name="musica" [(ngModel)]="cliente.interesses['musica']" />
+          <span class="check-mark">✓</span>
+          🎵 Música
+        </label>
+        <label class="checkbox-opcao" [class.marcado]="cliente.interesses['viagens']">
+          <input type="checkbox" name="viagens" [(ngModel)]="cliente.interesses['viagens']" />
+          <span class="check-mark">✓</span>
+          ✈️ Viagens
+        </label>
+        <label class="checkbox-opcao" [class.marcado]="cliente.interesses['gastronomia']">
+          <input type="checkbox" name="gastronomia" [(ngModel)]="cliente.interesses['gastronomia']" />
+          <span class="check-mark">✓</span>
+          🍕 Gastronomia
+        </label>
+      </div>
+    </div>
+
+    <!-- 7. ACEITE DOS TERMOS — CHECKBOX -->
+    <div class="campo campo-termos">
+      <label class="label-grupo">
+        <span class="campo-numero">07</span>
+        Termos de Uso <span class="obrigatorio">*</span>
+      </label>
+      <label class="checkbox-termos" [class.marcado]="cliente.aceitaTermos">
+        <input
+          type="checkbox"
+          name="aceitaTermos"
+          [(ngModel)]="cliente.aceitaTermos"
+        />
+        <span class="check-mark">✓</span>
+        Li e aceito os <strong>Termos de Uso</strong> e a <strong>Política de Privacidade</strong>
+      </label>
+    </div>
+
+    <!-- BOTÃO ENVIAR -->
+    <button type="submit" class="btn-cadastrar">
+      Cadastrar Cliente →
+    </button>
+
+  </form>
+
+</div>
