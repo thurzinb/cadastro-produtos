@@ -93,42 +93,22 @@
       </label>
       <div class="radio-group">
         <label class="radio-opcao" [class.selecionado]="cliente.genero === 'Masculino'">
-          <input
-            type="radio"
-            name="genero"
-            value="Masculino"
-            [(ngModel)]="cliente.genero"
-          />
+          <input type="radio" name="genero" value="Masculino" [(ngModel)]="cliente.genero" />
           <span class="radio-icone">♂</span>
           Masculino
         </label>
         <label class="radio-opcao" [class.selecionado]="cliente.genero === 'Feminino'">
-          <input
-            type="radio"
-            name="genero"
-            value="Feminino"
-            [(ngModel)]="cliente.genero"
-          />
+          <input type="radio" name="genero" value="Feminino" [(ngModel)]="cliente.genero" />
           <span class="radio-icone">♀</span>
           Feminino
         </label>
         <label class="radio-opcao" [class.selecionado]="cliente.genero === 'Outro'">
-          <input
-            type="radio"
-            name="genero"
-            value="Outro"
-            [(ngModel)]="cliente.genero"
-          />
+          <input type="radio" name="genero" value="Outro" [(ngModel)]="cliente.genero" />
           <span class="radio-icone">⚧</span>
           Outro
         </label>
         <label class="radio-opcao" [class.selecionado]="cliente.genero === 'Prefiro não informar'">
-          <input
-            type="radio"
-            name="genero"
-            value="Prefiro não informar"
-            [(ngModel)]="cliente.genero"
-          />
+          <input type="radio" name="genero" value="Prefiro não informar" [(ngModel)]="cliente.genero" />
           <span class="radio-icone">—</span>
           Não informar
         </label>
@@ -190,11 +170,7 @@
         Termos de Uso <span class="obrigatorio">*</span>
       </label>
       <label class="checkbox-termos" [class.marcado]="cliente.aceitaTermos">
-        <input
-          type="checkbox"
-          name="aceitaTermos"
-          [(ngModel)]="cliente.aceitaTermos"
-        />
+        <input type="checkbox" name="aceitaTermos" [(ngModel)]="cliente.aceitaTermos" />
         <span class="check-mark">✓</span>
         Li e aceito os <strong>Termos de Uso</strong> e a <strong>Política de Privacidade</strong>
       </label>
@@ -206,5 +182,25 @@
     </button>
 
   </form>
+
+  <!-- LISTA DE CLIENTES CADASTRADOS -->
+  <section class="clientes-lista" *ngIf="clientes.length > 0">
+    <h2>👥 Clientes Cadastrados</h2>
+    <div class="clientes-grid">
+      <div class="cliente-card" *ngFor="let c of clientes">
+        <div class="cliente-header">
+          <span class="cliente-icone">👤</span>
+          <strong>{{ c.nome }}</strong>
+        </div>
+        <ul>
+          <li><span>E-mail:</span> {{ c.email }}</li>
+          <li><span>Telefone:</span> {{ c.telefone }}</li>
+          <li><span>Gênero:</span> {{ c.genero }}</li>
+          <li><span>Estado:</span> {{ c.estado }}</li>
+          <li><span>Interesses:</span> {{ getInteresses(c) }}</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
 </div>

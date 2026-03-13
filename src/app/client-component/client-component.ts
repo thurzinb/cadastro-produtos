@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 interface Cliente {
+  id?: number;
   nome: string;
   email: string;
   telefone: string;
@@ -18,7 +20,11 @@ interface Cliente {
   templateUrl: './client-component.html',
   styleUrls: ['./client-component.css']
 })
-export class ClientComponent {
+export class ClientComponent implements OnInit {
+
+  private apiUrl = 'http://localhost:3000/clients';
+
+  clientes: Cliente[] = [];  // lista vinda do db.json
 
   cliente: Cliente = {
     nome: '',
@@ -46,6 +52,14 @@ export class ClientComponent {
   mensagemSucesso: string = '';
   erros: string[] = [];
   cadastrado: boolean = false;
+
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.http.get<Cliente[]>(this.apiUrl).subscribe({
+      next: dados => this.clientes = dados
+    });
+  }
 
   get interessesSelecionados(): string[] {
     return Object.entries(this.cliente.interesses)
@@ -76,8 +90,14 @@ export class ClientComponent {
 
   cadastrar(): void {
     if (this.validar()) {
-      this.mensagemSucesso = `Cliente ${this.cliente.nome} cadastrado com sucesso!`;
-      this.cadastrado = true;
+      this.http.post<Cliente>(this.apiUrl, this.cliente).subscribe({
+        next: clienteSalvo => {
+          this.clientes.push(clienteSalvo);
+          this.mensagemSucesso = `Cliente ${this.cliente.nome} cadastrado com sucesso!`;
+          this.cadastrado = true;
+        },
+        error: () => this.erros.push('Erro ao salvar no servidor.')
+      });
     }
   }
 
@@ -101,4 +121,10 @@ export class ClientComponent {
     this.erros = [];
     this.cadastrado = false;
   }
+  getInteresses(c: Cliente): string {
+  return Object.entries(c.interesses)
+    .filter(([_, v]) => v)
+    .map(([k]) => k.charAt(0).toUpperCase() + k.slice(1))
+    .join(', ') || 'Nenhum';
+}
 }

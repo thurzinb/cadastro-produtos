@@ -466,3 +466,48 @@ select option {
     width: 100%;
   }
 }
+.clientes-lista {
+  margin-top: 40px;
+  padding: 24px;
+}
+
+.clientes-lista h2 {
+  margin-bottom: 16px;
+  font-size: 1.3rem;
+}
+
+.clientes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.cliente-card {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 16px;
+}
+
+.cliente-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+  font-size: 1rem;
+}
+
+.cliente-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.875rem;
+}
+
+.cliente-card ul span {
+  font-weight: 600;
+  margin-right: 4px;
+}

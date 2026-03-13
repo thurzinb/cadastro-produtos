@@ -1,0 +1,170 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product 1",
+      "price": 10.99,
+      "description": "Description for Product 1"
+    },
+    {
+      "id": 2,
+      "name": "Product 2",
+      "price": 20.99,
+      "description": "Description for Product 2"
+    },
+    {
+      "id": 3,
+      "name": "Product 3",
+      "price": 30.99,
+      "description": "Description for Product 3"
+    }
+  ],
+  "clients": [
+    {
+      "id": 1,
+      "name": "Client 1",
+      "email": "client1@email.com",
+      "phone": "11999999999"
+    },
+    {
+      "id": 2,
+      "name": "Client 2",
+      "email": "client2@email.com",
+      "phone": "11988888888"
+    },
+    {
+      "id": 3,
+      "name": "Client 3",
+      "email": "client3@email.com",
+      "phone": "11977777777"
+    },
+    {
+      "nome": "ARthur Brasil",
+      "email": "asdwefdgregrebre@gmail.com",
+      "telefone": "15991100391",
+      "genero": "Masculino",
+      "estado": "AL",
+      "interesses": {
+        "tecnologia": true,
+        "esportes": false,
+        "musica": false,
+        "viagens": false,
+        "gastronomia": false
+      },
+      "aceitaTermos": true,
+      "id": 4
+    },
+    {
+      "nome": "ARthur Brasil",
+      "email": "asdwefdgregrebre@gmail.com",
+      "telefone": "15991100391",
+      "genero": "Masculino",
+      "estado": "AL",
+      "interesses": {
+        "tecnologia": true,
+        "esportes": false,
+        "musica": false,
+        "viagens": false,
+        "gastronomia": false
+      },
+      "aceitaTermos": true,
+      "id": 5
+    },
+    {
+      "nome": "abuhduehud hswjdiw",
+      "email": "duehdiei@gmail.com",
+      "telefone": "15991100391",
+      "genero": "Masculino",
+      "estado": "PI",
+      "interesses": {
+        "tecnologia": true,
+        "esportes": true,
+        "musica": true,
+        "viagens": false,
+        "gastronomia": false
+      },
+      "aceitaTermos": true,
+      "id": 6
+    },
+    {
+      "nome": "abuhduehud hswjdiw",
+      "email": "duehdiei@gmail.com",
+      "telefone": "15991100391",
+      "genero": "Masculino",
+      "estado": "PI",
+      "interesses": {
+        "tecnologia": true,
+        "esportes": true,
+        "musica": true,
+        "viagens": false,
+        "gastronomia": false
+      },
+      "aceitaTermos": true,
+      "id": 7
+    },
+    {
+      "nome": "artgur jrifoefe",
+      "email": "eiduehjdiewj@gmail.com",
+      "telefone": "15991100391",
+      "genero": "Masculino",
+      "estado": "PE",
+      "interesses": {
+        "tecnologia": true,
+        "esportes": true,
+        "musica": false,
+        "viagens": false,
+        "gastronomia": false
+      },
+      "aceitaTermos": true,
+      "id": 8
+    },
+    {
+      "nome": "artgur jrifoefe",
+      "email": "eiduehjdiewj@gmail.com",
+      "telefone": "15991100391",
+      "genero": "Masculino",
+      "estado": "PE",
+      "interesses": {
+        "tecnologia": true,
+        "esportes": true,
+        "musica": false,
+        "viagens": false,
+        "gastronomia": false
+      },
+      "aceitaTermos": true,
+      "id": 9
+    },
+    {
+      "nome": "Arthur Brasil Silva",
+      "email": "brasil2403@gmail.com",
+      "telefone": "15 991100391",
+      "genero": "Masculino",
+      "estado": "SP",
+      "interesses": {
+        "tecnologia": true,
+        "esportes": true,
+        "musica": false,
+        "viagens": false,
+        "gastronomia": false
+      },
+      "aceitaTermos": true,
+      "id": 10
+    },
+    {
+      "nome": "Arthur Brasil Silva",
+      "email": "brasil2403@gmail.com",
+      "telefone": "15 991100391",
+      "genero": "Masculino",
+      "estado": "SP",
+      "interesses": {
+        "tecnologia": true,
+        "esportes": true,
+        "musica": false,
+        "viagens": false,
+        "gastronomia": false
+      },
+      "aceitaTermos": true,
+      "id": 11
+    }
+  ]
+}

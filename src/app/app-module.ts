@@ -10,6 +10,7 @@ import { HomeComponent } from './home-component/home-component';
 import { FooterComponent } from './footer-component/footer-component';
 import { NavBarComponent } from './nav-bar-component/nav-bar-component';
 import { ClientComponent } from './client-component/client-component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,8 @@ import { ClientComponent } from './client-component/client-component';
   ],
   providers: [
     provideBrowserGlobalErrorListeners(),
+        provideHttpClient()
+
   ],
   bootstrap: [App]
 })
